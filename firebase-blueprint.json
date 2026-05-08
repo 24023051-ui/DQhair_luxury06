@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile containing personal information and wishlist.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["email", "createdAt", "updatedAt"]
+    },
+    "Wishlist": {
+      "title": "Wishlist",
+      "description": "User's saved products.",
+      "type": "object",
+      "properties": {
+        "productIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["productIds", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "User" },
+      "description": "User profile data."
+    },
+    "/users/{userId}/data/wishlist": {
+      "schema": { "$ref": "Wishlist" },
+      "description": "User's wishlist."
+    }
+  }
+}
