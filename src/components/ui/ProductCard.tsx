@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
-import { Product } from '@/data/mockProducts';
-import { MessageCircle } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { motion } from 'motion/react';
+import { Link } from "react-router-dom";
+import { Product } from "@/data/mockProducts";
+import { MessageCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
-import React from 'react';
+import React from "react";
 
 interface ProductCardProps {
   key?: React.Key;
@@ -20,7 +20,11 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.1,
+        ease: [0.21, 0.47, 0.32, 0.98],
+      }}
       className="group rounded-xl bg-[#0A0A0A] border border-white/5 overflow-hidden flex flex-col h-full hover:border-[#C9A84C]/30 transition-all duration-500 hover:shadow-[0_20px_40px_-20px_rgba(201,168,76,0.15)]"
     >
       {/* Image Container */}
@@ -35,37 +39,27 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60" />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
         </Link>
-        
-        {/* Badge */}
-        {product.badge && (
-          <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-[#C9A84C] border border-[#C9A84C]/30 text-[9px] font-bold px-3 py-1.5 uppercase tracking-widest rounded-sm">
-            {product.badge}
-          </div>
-        )}
       </div>
 
       {/* Body */}
-      <div className="p-6 flex flex-col flex-grow text-[#F5F5F0] relative">
-        <div className="absolute -top-12 right-4 bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-sm border border-white/10 shadow-xl group-hover:-translate-y-1 transition-transform duration-500">
-          From $100
-        </div>
-        
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[#C9A84C] mb-3 font-semibold">
+      <div className="p-2 sm:p-6 flex flex-col flex-grow text-[#F5F5F0] relative">
+        <p className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] text-[#C9A84C] mb-1 sm:mb-3 font-semibold truncate">
           {product.category}
         </p>
-        <h3 className="font-display text-xl leading-snug text-white mb-3 line-clamp-2 group-hover:text-[#F0D080] transition-colors duration-300">
+        <h3 className="font-display text-sm sm:text-lg lg:text-xl leading-snug text-white mb-2 sm:mb-3 line-clamp-2 group-hover:text-[#F0D080] transition-colors duration-300">
           <Link to={`/products/${product.slug}`}>{product.name}</Link>
         </h3>
-        
-        <p className="text-[#888] text-[13px] leading-relaxed line-clamp-2 mb-8 flex-grow font-light">
+
+        <p className="hidden sm:block text-[#888] text-[13px] leading-relaxed line-clamp-2 mb-8 flex-grow font-light">
           {product.description}
         </p>
+        <div className="sm:hidden flex-grow" />
 
         {/* Actions */}
-        <div className="grid grid-cols-2 gap-3 mt-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 mt-auto">
           <Link
             to={`/products/${product.slug}`}
-            className="text-center py-3 text-[10px] uppercase tracking-widest text-white border border-white/10 hover:border-[#C9A84C] hover:text-[#C9A84C] hover:bg-[#C9A84C]/5 transition-all rounded-sm font-semibold"
+            className="text-center py-2 sm:py-3 text-[8px] sm:text-[10px] uppercase tracking-widest text-white border border-white/10 hover:border-[#C9A84C] hover:text-[#C9A84C] hover:bg-[#C9A84C]/5 transition-all rounded-sm font-semibold"
           >
             Details
           </Link>
@@ -73,9 +67,10 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-center gap-2 py-3 text-[10px] text-black bg-[#C9A84C] hover:bg-[#F0D080] hover:shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all rounded-sm font-bold uppercase tracking-widest"
+            className="flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-3 text-[8px] sm:text-[10px] text-black bg-[#C9A84C] hover:bg-[#F0D080] hover:shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all rounded-sm font-bold uppercase tracking-widest"
           >
-            Inquire
+            <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span>Inquire</span>
           </a>
         </div>
       </div>

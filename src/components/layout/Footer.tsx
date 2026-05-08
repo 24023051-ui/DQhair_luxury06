@@ -5,19 +5,19 @@ export function Footer() {
   return (
     <footer className="bg-[#0A0A0A] pt-20 border-t border-white/5 relative z-10">
       <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-12 mb-12 md:mb-16">
+          <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex flex-col group mb-6">
-              <img src="/logo.png" alt="DQHair Vietnam" className="h-12 w-auto object-contain object-left mb-2 grayscale brightness-200" />
+              <img src="/logo.png" alt="DQHair Vietnam" className="h-10 md:h-12 w-auto object-contain object-left mb-2 grayscale brightness-200" />
             </Link>
-            <p className="text-[#A0A0A0] text-sm leading-relaxed max-w-md">
+            <p className="text-[#A0A0A0] text-xs md:text-sm leading-relaxed max-w-md">
               Premium raw hair factory from Vietnam. Delivering export-quality hair extensions and wigs with unparalleled luxury and durability.
             </p>
           </div>
 
-          <div>
-            <h4 className="font-display text-[#F5F5F0] text-lg mb-6 tracking-wide">Explore</h4>
-            <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-medium text-[#F5F5F0]">
+          <div className="col-span-1">
+            <h4 className="font-display text-[#F5F5F0] text-base md:text-lg mb-4 md:mb-6 tracking-wide">Explore</h4>
+            <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-[#F5F5F0]">
               <li><Link to="/" className="hover:text-[#C9A84C] transition-colors">Home</Link></li>
               <li><Link to="/products" className="hover:text-[#C9A84C] transition-colors">Premium Catalog</Link></li>
               <li><Link to="/about" className="hover:text-[#C9A84C] transition-colors">Our Story</Link></li>
@@ -25,9 +25,18 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-display text-[#F5F5F0] text-lg mb-6 tracking-wide">Contact</h4>
-            <ul className="space-y-4 text-xs tracking-widest text-[#A0A0A0]">
+          <div className="col-span-1">
+            <h4 className="font-display text-[#F5F5F0] text-base md:text-lg mb-4 md:mb-6 tracking-wide">Service Hours</h4>
+            <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs uppercase tracking-widest text-[#A0A0A0]">
+              <li>Monday - Sunday</li>
+              <li>8:00 AM - 10:00 PM</li>
+              <li className="text-[#C9A84C] mt-2 md:mt-4">Worldwide Shipping</li>
+            </ul>
+          </div>
+
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="font-display text-[#F5F5F0] text-base md:text-lg mb-4 md:mb-6 tracking-wide">Contact</h4>
+            <ul className="space-y-3 md:space-y-4 text-xs md:text-xs tracking-widest text-[#A0A0A0]">
               <li className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
                 <div className="flex flex-col space-y-1">
@@ -45,20 +54,11 @@ export function Footer() {
               </li>
             </ul>
           </div>
-
-          <div>
-            <h4 className="font-display text-[#F5F5F0] text-lg mb-6 tracking-wide">Service Hours</h4>
-            <ul className="space-y-4 text-xs uppercase tracking-widest text-[#A0A0A0]">
-              <li>Monday - Sunday</li>
-              <li>8:00 AM - 10:00 PM (GMT+7)</li>
-              <li className="text-[#C9A84C] mt-4">Worldwide Shipping</li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom Bar matching theme */}
-        <div className="h-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between z-10">
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 text-[10px] uppercase tracking-widest opacity-60 text-[#F5F5F0]">
+        <div className="py-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between z-10 gap-4">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 text-[9px] md:text-[10px] uppercase tracking-widest opacity-60 text-[#F5F5F0]">
             <span>Instagram @dqhair_vietnam9</span>
             <span className="text-[#C9A84C] hidden sm:inline">•</span>
             <span>admin@dqhairvn.com</span>

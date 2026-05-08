@@ -27,13 +27,12 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="aspect-[21/9] w-full rounded-sm overflow-hidden relative"
+            className="w-full flex items-center justify-center py-12 md:py-20"
          >
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10"></div>
             <img 
-              src="https://images.unsplash.com/photo-1595475884562-073c18844f9c?q=80&w=2000&auto=format&fit=crop" 
-              alt="DQhair Factory" 
-              className="w-full h-full object-cover"
+              src="/logo.png" 
+              alt="DQhair Logo" 
+              className="w-full max-w-sm md:max-w-2xl lg:max-w-4xl object-contain drop-shadow-[0_0_30px_rgba(201,168,76,0.15)]"
             />
          </motion.div>
       </div>

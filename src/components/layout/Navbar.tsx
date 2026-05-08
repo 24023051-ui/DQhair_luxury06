@@ -47,14 +47,14 @@ export function Navbar() {
         className={cn(
           'fixed top-0 w-full z-[100] transition-all duration-500 ease-out',
           scrolled || isOpen
-            ? 'h-20 lg:h-24 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-[#C9A84C]/20 flex items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]'
-            : 'h-24 lg:h-32 bg-gradient-to-b from-black/80 to-transparent flex items-center border-b border-transparent'
+            ? 'h-14 lg:h-20 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-[#C9A84C]/20 flex items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]'
+            : 'h-16 lg:h-24 bg-gradient-to-b from-black/80 to-transparent flex items-center border-b border-transparent'
         )}
       >
         <div className="max-w-[1440px] w-full mx-auto px-6 sm:px-12 xl:px-16 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex flex-col z-50 group hover:scale-105 transition-transform duration-500 origin-left">
-            <img src="/logo.png" alt="DQHair Vietnam" className={cn("object-contain transition-all duration-500", scrolled || isOpen ? "h-10 lg:h-12" : "h-12 lg:h-16")} />
+            <img src="/logo.png" alt="DQHair Vietnam" className={cn("object-contain transition-all duration-500", scrolled || isOpen ? "h-8 lg:h-12" : "h-10 lg:h-16")} />
           </Link>
 
           {/* Desktop Nav */}
