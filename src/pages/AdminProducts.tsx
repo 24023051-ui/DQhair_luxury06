@@ -209,12 +209,20 @@ export function AdminProducts() {
               </div>
               <div>
                 <label className="block text-[10px] uppercase tracking-widest opacity-60 mb-1">Category</label>
-                <select value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-black border border-white/10 p-2 text-xs">
-                  <option>Straight Hair</option>
-                  <option>Wavy Hair</option>
-                  <option>Curly Hair</option>
-                  <option>Colored Hair</option>
-                </select>
+                <input 
+                  type="text" 
+                  required
+                  list="category-options"
+                  value={formData.category} 
+                  onChange={e => setFormData({...formData, category: e.target.value})} 
+                  className="w-full bg-black border border-white/10 p-2 text-xs" 
+                  placeholder="e.g. Straight Hair"
+                />
+                <datalist id="category-options">
+                  {Array.from(new Set(products.map(p => p.category))).map(cat => (
+                    <option key={cat} value={cat} />
+                  ))}
+                </datalist>
               </div>
               <div>
                 <label className="block text-[10px] uppercase tracking-widest opacity-60 mb-1">Description</label>

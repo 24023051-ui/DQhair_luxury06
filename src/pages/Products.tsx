@@ -21,18 +21,12 @@ export function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
 
-  const categories: Category[] = [
-    "All",
-    "Straight",
-    "Curly",
-    "Updo",
-    "Wigs",
-    "Extensions",
-    "Straight Hair",
-    "Wavy Hair",
-    "Curly Hair",
-    "Colored Hair",
-  ];
+  const allProductsList = useMemo(() => [...dbProducts, ...MOCK_PRODUCTS], [dbProducts]);
+
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(new Set(allProductsList.map(p => p.category))).filter(Boolean);
+    return ["All", ...uniqueCategories];
+  }, [allProductsList]);
 
   useEffect(() => {
     // Fetch products from Firebase
@@ -56,8 +50,7 @@ export function Products() {
   }, [activeCategory, searchQuery]);
 
   const filteredProducts = useMemo(() => {
-    const allProducts = [...dbProducts, ...MOCK_PRODUCTS];
-    return allProducts.filter((product) => {
+    return allProductsList.filter((product) => {
       const matchCategory =
         activeCategory === "All" || product.category === activeCategory;
       const matchSearch =
@@ -65,7 +58,7 @@ export function Products() {
         product.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchCategory && matchSearch;
     });
-  }, [activeCategory, searchQuery, dbProducts]);
+  }, [activeCategory, searchQuery, allProductsList]);
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const paginatedProducts = filteredProducts.slice(
@@ -184,7 +177,7 @@ export function Products() {
         {/* Grid */}
         {filteredProducts.length > 0 ? (
           <>
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 lg:gap-8 min-h-[500px]">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 lg:gap-8 items-start">
               {paginatedProducts.map((product, index) => (
                 <ProductCard
                   key={product.id}

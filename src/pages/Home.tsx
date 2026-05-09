@@ -3,9 +3,28 @@ import { ProductCard } from '@/components/ui/ProductCard';
 import { Link } from 'react-router-dom';
 import { ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 export function Home() {
-  const featuredProducts = MOCK_PRODUCTS.filter(p => p.isFeatured).slice(0, 6);
+  const [featuredProducts, setFeaturedProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Fetch products from Firebase
+    const fetchProducts = async () => {
+      try {
+        const snap = await getDocs(collection(db, "products"));
+        const items = snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        // Also combine with MOCK_PRODUCTS in case there are any
+        const allProducts = [...items, ...MOCK_PRODUCTS];
+        setFeaturedProducts(allProducts.filter(p => p.isFeatured).slice(0, 6));
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <div className="bg-[var(--bg-primary)]">

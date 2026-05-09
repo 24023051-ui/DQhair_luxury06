@@ -28,7 +28,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="group rounded-xl bg-[#0A0A0A] border border-white/5 overflow-hidden flex flex-col h-full hover:border-[#C9A84C]/30 transition-all duration-500 hover:shadow-[0_20px_40px_-20px_rgba(201,168,76,0.15)]"
     >
       {/* Image Container */}
-      <div className="relative aspect-[4/5] bg-[#111] overflow-hidden">
+      <div className="relative aspect-square sm:aspect-[4/5] bg-[#111] overflow-hidden">
         <Link to={`/products/${product.slug}`} className="block w-full h-full">
           <img
             src={product.images[0]}
@@ -42,24 +42,23 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       </div>
 
       {/* Body */}
-      <div className="p-2 sm:p-6 flex flex-col flex-grow text-[#F5F5F0] relative">
-        <p className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] text-[#C9A84C] mb-1 sm:mb-3 font-semibold truncate">
+      <div className="p-2 sm:p-5 flex flex-col flex-grow text-[#F5F5F0] relative">
+        <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#C9A84C] mb-1 sm:mb-2 font-semibold truncate">
           {product.category}
         </p>
         <h3 className="font-display text-sm sm:text-lg lg:text-xl leading-snug text-white mb-2 sm:mb-3 line-clamp-2 group-hover:text-[#F0D080] transition-colors duration-300">
           <Link to={`/products/${product.slug}`}>{product.name}</Link>
         </h3>
 
-        <p className="hidden sm:block text-[#888] text-[13px] leading-relaxed line-clamp-2 mb-8 flex-grow font-light">
+        <p className="hidden sm:block text-[#888] text-[13px] leading-relaxed line-clamp-2 mb-5 flex-grow font-light">
           {product.description}
         </p>
-        <div className="sm:hidden flex-grow" />
 
         {/* Actions */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 mt-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 mt-auto pt-3 sm:pt-0">
           <Link
             to={`/products/${product.slug}`}
-            className="text-center py-2 sm:py-3 text-[8px] sm:text-[10px] uppercase tracking-widest text-white border border-white/10 hover:border-[#C9A84C] hover:text-[#C9A84C] hover:bg-[#C9A84C]/5 transition-all rounded-sm font-semibold"
+            className="flex items-center justify-center py-2 sm:py-3 text-[9px] sm:text-[10px] uppercase tracking-widest text-white border border-white/10 hover:border-[#C9A84C] hover:text-[#C9A84C] hover:bg-[#C9A84C]/5 transition-all rounded-sm font-semibold"
           >
             Details
           </Link>
@@ -67,9 +66,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-3 text-[8px] sm:text-[10px] text-black bg-[#C9A84C] hover:bg-[#F0D080] hover:shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all rounded-sm font-bold uppercase tracking-widest"
+            className="flex items-center justify-center gap-1.5 py-2 sm:py-3 text-[9px] sm:text-[10px] text-black bg-[#C9A84C] hover:bg-[#F0D080] hover:shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all rounded-sm font-bold uppercase tracking-widest"
           >
-            <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4" />
+            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span>Inquire</span>
           </a>
         </div>
